@@ -1,0 +1,32 @@
+package com.example.blogapp.Entity;
+
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
+@Entity
+@Table(name="Categories")
+@NoArgsConstructor
+@AllArgsConstructor
+@Getter
+@Setter
+public class Category {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int categoryId;
+    @Column(unique = true,nullable = false)
+    private String categoryTitle;
+    @Column(nullable = false)
+    private String categoryDescription;
+    @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Post> posts = new ArrayList<>();
+
+}
