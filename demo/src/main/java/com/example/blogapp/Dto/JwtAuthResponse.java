@@ -1,15 +1,13 @@
 package com.example.blogapp.Dto;
 
+import lombok.*;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class JwtAuthResponse {
+
     private String token;
+    private String username;
 }

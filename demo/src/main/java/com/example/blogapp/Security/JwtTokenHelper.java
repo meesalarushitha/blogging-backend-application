@@ -20,7 +20,7 @@ public class JwtTokenHelper {
   private String secret;
 
   @Value("{$jwt.expiration")
-  private long expiration;
+  private String expiration;
 
   private SecretKey getSigningKey(){
       byte[] KeyBytes= Decoders.BASE64.decode(secret);
